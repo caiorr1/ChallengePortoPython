@@ -123,9 +123,12 @@ def modal():
                 break
         # caso 1, acidente de transito e veiculo leve
             if tipo_veiculo == '1':
+                print('\n-----------------------------------')
                 endereco = input('Qual endereco da ocorrência?\n')
+                print('-----------------------------------')
                 telefone = input('Qual telefone para atendimento?\n')
-                print(f'O guincho será enviado para o veiculo comum/leve de placa: {placa}, do proprietário de CPF: {cpf}\nTelefone: {telefone}\nPara o endereco: {endereco}')
+                print('-----------------------------------')
+                print(f'O guincho será enviado para o veiculo comum/leve de placa: {placa}\nProprietário de CPF:{cpf}\nTelefone: {telefone}\nPara o endereco: {endereco}')
                 print('----------------------')
                 print('ATENDIMENTO ENCERRADO')
                 print('----------------------')    
@@ -135,7 +138,9 @@ def modal():
                 print('----------------------')
         # caso 1.1, acidente de transito e veiculo pesado
         elif tipo_veiculo == '2':
+            print('\n-----------------------------------')
             endereco_2 = input('Qual endereco da ocorrência?\n')
+            print('-----------------------------------')
             telefone = input('Qual telefone para atendimento?\n')
             print('----------------------------------------------------------------------')
             print('Para a escolha de guincho ser assertiva, responda algumas perguntas. Se não souber responder, digite 0\n')
