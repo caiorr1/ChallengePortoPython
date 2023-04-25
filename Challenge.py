@@ -67,7 +67,7 @@ def login():
         if i == login:
             if senha == bancoDeDados[i]:
                 print('-------------------------------------')
-                print('Parabéns! Você realizou o seu login!')
+                print(f'Olá {login}! Você realizou o seu login!')
                 print('-------------------------------------')
                 modal()
             else:
@@ -87,46 +87,70 @@ def modal():
     print('****************************')
     chamarModal = input(
         'Pressione (1) para chamar um Guincho\nPressione (2) para Sair\n')
+    while chamarModal != '1' and chamarModal != '2':
+        print('\n-----------------------------------')
+        print('Não entendi, digite novamente.')
+        print('-------------------------------------')
+        chamarModal = input(
+        'Pressione (1) para chamar um Guincho\nPressione (2) para Sair\n')
+        break 
     if chamarModal == '2':
-        print('------------------------')
+        print('\n----------------------------------------------')
         print('Você saiu da aplicação')
-        print('------------------------')
+        print('------------------------------------------------')
     elif chamarModal == '1':
-        descobrindo_caso = input(
+        print('------------------------------------------------------------')
+        descobrindo_caso = input('Presione (1) se foi um acidente de transito\nPressione (2) se foi uma falha operacional\n')
+        while descobrindo_caso != '1' and descobrindo_caso != '2':
+            print('\n-------------------------------------------------------------------------------')
+            print('Não entendi, digite novamente.')
+            print('---------------------------------------------------------------------------------')
+            descobrindo_caso = input(
             'Presione (1) se foi um acidente de transito\nPressione (2) se foi uma falha operacional\n')
-    elif descobrindo_caso == '1':
-        tipo_veiculo = input(
+            break
+        if descobrindo_caso == '1':
+            print('------------------------------------------------------------')
+            tipo_veiculo = input(
             'Pressione (1) se o veículo é leve(Peso de até 3,5 toneladas\nPressione (2) se o veículo é pesado(Acima de 3,5 toneladas)\n')
+            print('------------------------------------------------------------')
+            while tipo_veiculo != '1' and tipo_veiculo != '2':
+                print('\n------------------------------')
+                print('Não entendi, digite novamente.')
+                print('--------------------------------')
+                tipo_veiculo = input(
+                'Pressione (1) se o veículo é leve(Peso de até 3,5 toneladas\nPressione (2) se o veículo é pesado(Acima de 3,5 toneladas)\n')
+                print('------------------------------------------------------------')
+                break
         # caso 1, acidente de transito e veiculo leve
-        if tipo_veiculo == '1':
-            endereco = input('Qual endereco da ocorrência?\n')
-            telefone = input('Qual telefone para atendimento?\n')
-            print(
-                f'O guincho para o veiculo comum/leve de placa: {placa}, do proprietário de CPF: {cpf}\nTelefone: {telefone}\nPara o endereco: {endereco}')
-            while tipo_carroceria == '1':
+            if tipo_veiculo == '1':
+                endereco = input('Qual endereco da ocorrência?\n')
+                telefone = input('Qual telefone para atendimento?\n')
+                print(f'O guincho será enviado para o veiculo comum/leve de placa: {placa}, do proprietário de CPF: {cpf}\nTelefone: {telefone}\nPara o endereco: {endereco}')
+                print('----------------------')
+                print('ATENDIMENTO ENCERRADO')
+                print('----------------------')    
+            else: 
                 print('----------------------')
                 print('ATENDIMENTO ENCERRADO')
                 print('----------------------')
-                break
         # caso 1.1, acidente de transito e veiculo pesado
         elif tipo_veiculo == '2':
             endereco_2 = input('Qual endereco da ocorrência?\n')
             telefone = input('Qual telefone para atendimento?\n')
-            print(
-                '----------------------------------------------------------------------')
+            print('----------------------------------------------------------------------')
             print('Para a escolha de guincho ser assertiva, responda algumas perguntas. Se não souber responder, digite 0\n')
-            print(
-                '----------------------------------------------------------------------')
+            print('----------------------------------------------------------------------')
             tipo_carroceria = input("Digite o tipo de carroceria: ")
             chassi = input("Seu chassi é alongado?: ")
             comprimento = input("Qual o comprimento do seu veiculo?: ")
             peso_com_carga = input("Peso do veiculo com a carga: ")
             peso_sem_carga = input("Peso do veiculo sem a carga: ")
             quantidade_eixos = input("Qual a quantidade de eixo: ")
-            informacao_adicional = input(
-                'Responda caso seu veiculo tenha alguma alteração, ou você queira adicionar alguma informação sobre. Caso não tenha nenhuma informação a mais, deixe em branco\n')
-            print(
-                f'O guincho para o veículo pesado de placa: {placa}, do proprietário de CPF: {cpf}\nTelefone: {telefone}\nPara o endereco: {endereco_2}')
+            informacao_adicional = input('Responda caso seu veiculo tenha alguma alteração, ou você queira adicionar alguma informação sobre. Caso não tenha nenhuma informação a mais, deixe em branco\n')
+            print(f'O guincho será enviado para o veículo pesado de placa: {placa}, do proprietário de CPF: {cpf}\nTelefone: {telefone}\nPara o endereco: {endereco_2}')
+            print('----------------------')
+            print('ATENDIMENTO ENCERRADO')
+            print('----------------------')
             while tipo_veiculo == '2':
                 print('----------------------')
                 print('ATENDIMENTO ENCERRADO')
@@ -137,6 +161,7 @@ def modal():
                 print('Vamos enviar um atendente de moto para nos auxiliar na escolha do guincho. Obrigado pelo contato!')
                 print('----------------------------------------------------------------------------------------------------')
                 break
+        #CONTINUAR DAQUI AMANHA, FAZENDO AS OUTRAS DUAS OPCOES DE CASOS
 
 # inicio do programa
 print('BEM VINDO AO SISTEMA ANDROMEDA PORTO DE SUPORTE')
