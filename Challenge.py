@@ -103,8 +103,7 @@ def modal():
             print('\n-------------------------------------------------------------------------------')
             print('Não entendi, digite novamente.')
             print('---------------------------------------------------------------------------------')
-            descobrindo_caso = input(
-            'Presione (1) se foi um acidente de transito\nPressione (2) se foi uma falha operacional\n')
+            descobrindo_caso = input('Presione (1) se foi um acidente de transito\nPressione (2) se foi uma falha operacional\n')
             break
         # caso 1, acidente de transito e veiculo leve
         if descobrindo_caso == '1':
@@ -132,17 +131,15 @@ def modal():
             else: 
                 main()
         # caso 1.1, acidente de transito e veiculo pesado
-        elif descobrindo_caso == '2':
+        elif descobrindo_caso == '1':
             print('------------------------------------------------------------')
-            tipo_veiculo = input(
-            'Pressione (1) se o veículo é leve(Peso de até 3,5 toneladas\nPressione (2) se o veículo é pesado(Acima de 3,5 toneladas)\n')
+            tipo_veiculo = input('Pressione (1) se o veículo é leve(Peso de até 3,5 toneladas\nPressione (2) se o veículo é pesado(Acima de 3,5 toneladas)\n')
             print('------------------------------------------------------------')
             while tipo_veiculo != '1' and tipo_veiculo != '2':
                 print('\n------------------------------')
                 print('Não entendi, digite novamente.')
                 print('--------------------------------')
-                tipo_veiculo = input(
-                'Pressione (1) se o veículo é leve(Peso de até 3,5 toneladas\nPressione (2) se o veículo é pesado(Acima de 3,5 toneladas)\n')
+                tipo_veiculo = input('Pressione (1) se o veículo é leve(Peso de até 3,5 toneladas\nPressione (2) se o veículo é pesado(Acima de 3,5 toneladas)\n')
                 print('------------------------------------------------------------')
                 break
             if tipo_veiculo == '2':
@@ -170,7 +167,6 @@ def modal():
                     print('ATENDIMENTO ENCERRADO')
                     print('----------------------')
                     break   
-                main()
             else:
                 main()
         #caso 1.2, falha operacional e veiculo leve
@@ -195,9 +191,7 @@ def modal():
                 print('----------------------')
                 print('ATENDIMENTO ENCERRADO')
                 print('----------------------')
-            else:
-                main()  
-               
+            
         # falha operacional e veiculo pesado
         elif descobrindo_caso == '2':
             print('------------------------------------------------------------')
@@ -238,14 +232,7 @@ def modal():
                     print('----------------------')
                     break
                 main()
-            else:
-                main()
-        else:
-            main()  
-    else:  
-        main()
-
-
+           
 # inicio do programa
 print('BEM VINDO AO SISTEMA ANDROMEDA PORTO DE SUPORTE')
 print('***********************************************')
