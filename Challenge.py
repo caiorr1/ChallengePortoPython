@@ -1,3 +1,4 @@
+import random
 bancoDeDados = {'Login1': 'Senha1', 'Login2': 'Senha2'}
 
 
@@ -40,6 +41,7 @@ def cadastro():
     senhaCadastro = input('Qual a senha?\n')
     print('-'*30)
     senhaConfirmacao = input('Confirme a senha\n')
+    id_usuario = random.randint(10000,99999)
 
     while senhaConfirmacao != senhaCadastro:
         print('='*25)
@@ -51,8 +53,20 @@ def cadastro():
         loginUsuario = {loginCadastro: senhaCadastro}
         bancoDeDados.update(loginUsuario)
         # print (bancoDeDados) Lista de Usuários
-        print('\nParabéns! Você realizou o seu cadastro!\n')
+        print('\nParabéns! Você realizou o seu cadastro!')
+        print(f'Seu id é {id_usuario}\n')
         main()
+
+    novo_usuario = {
+        "login" : loginCadastro,
+        "cpf" : cpf,
+        "placa" : placa,
+        "modelo" : modelo,
+        "senha" : senhaCadastro,
+        "id" : id_usuario
+    }
+
+    return novo_usuario
 
 
 def login():
@@ -85,12 +99,12 @@ def modal():
     print('GUINCHO')
     print('*'*28)
     chamarModal = input('Pressione (1) para chamar um Guincho\nPressione (2) para Sair\n')
-    # while chamarModal != '1' and chamarModal != '2':
-    #     print('\n-----------------------------------')
-    #     print('Não entendi, digite novamente.')
-    #     print('-------------------------------------')
-    #     chamarModal = input('Pressione (1) para chamar um Guincho\nPressione (2) para Sair\n')
-    #     break 
+    while chamarModal != '1' and chamarModal != '2':
+        print('-'*32)
+        print('Não entendi, digite novamente.')
+        print('-'*32)
+        chamarModal = input('Pressione (1) para chamar um Guincho\nPressione (2) para Sair\n')
+        break 
     if chamarModal == '2':
         print('-'*40)
         print('Você saiu da aplicação')
@@ -99,24 +113,23 @@ def modal():
     elif chamarModal == '1':
         print('-'*60)
         descobrindo_caso = input('Presione (1) se foi um acidente de transito\nPressione (2) se foi uma falha operacional\n')
-        # while descobrindo_caso != '1' and descobrindo_caso != '2':
-        #     print('\n-------------------------------------------------------------------------------')
-        #     print('Não entendi, digite novamente.')
-        #     print('---------------------------------------------------------------------------------')
-        #     descobrindo_caso = input('Presione (1) se foi um acidente de transito\nPressione (2) se foi uma falha operacional\n')
+        while descobrindo_caso != '1' and descobrindo_caso != '2':
+            print('-'*32)
+            print('Não entendi, digite novamente.')
+            print('-'*32)
+            descobrindo_caso = input('Presione (1) se foi um acidente de transito\nPressione (2) se foi uma falha operacional\n')
         # caso 1, acidente de transito e veiculo leve
         if descobrindo_caso == '1':
             print('-'*60)
             tipo_veiculo = input('Pressione (1) se o veículo é leve(Peso de até 3,5 toneladas\nPressione (2) se o veículo é pesado(Acima de 3,5 toneladas)\n')
             print('-'*60)
-            # while tipo_veiculo != '1' and tipo_veiculo != '2':
-            #     print('\n------------------------------')
-            #     print('Não entendi, digite novamente.')
-            #     print('--------------------------------')
-            #     tipo_veiculo = input(
-            #     'Pressione (1) se o veículo é leve(Peso de até 3,5 toneladas\nPressione (2) se o veículo é pesado(Acima de 3,5 toneladas)\n')
-            #     print('------------------------------------------------------------')
-            #     break
+            while tipo_veiculo != '1' and tipo_veiculo != '2':
+                print('-'*32)
+                print('Não entendi, digite novamente.')
+                print('-'*32)
+                tipo_veiculo = input('Pressione (1) se o veículo é leve(Peso de até 3,5 toneladas\nPressione (2) se o veículo é pesado(Acima de 3,5 toneladas)\n')
+                print('-'*60)
+                break
             if tipo_veiculo == '1':
                 endereco = input('Qual endereco da ocorrência?\n')
                 print('-'*35)
@@ -160,25 +173,18 @@ def modal():
                     #     print('ATENDIMENTO ENCERRADO')
                     #     print('----------------------')
                     #     break   
-                else:
-                    main()
-            else:
-                main()
-        else:
-            main()
+            
         #caso 1.2, falha operacional e veiculo leve
         if descobrindo_caso == '2':
             print('-'*60)
             tipo_veiculo = input('Pressione (1) se o veículo é leve(Peso de até 3,5 toneladas\nPressione (2) se o veículo é pesado(Acima de 3,5 toneladas)\n')
             print('-'*60)
-            # while tipo_veiculo != '1' and tipo_veiculo != '2':
-            #     print('\n------------------------------')
-            #     print('Não entendi, digite novamente.')
-            #     print('--------------------------------')
-            #     tipo_veiculo = input(
-            #     'Pressione (1) se o veículo é leve(Peso de até 3,5 toneladas\nPressione (2) se o veículo é pesado(Acima de 3,5 toneladas)\n')
-            #     print('------------------------------------------------------------')
-            #     break
+            while tipo_veiculo != '1' and tipo_veiculo != '2':
+                print('Não entendi, digite novamente.')
+                print('-'*32)
+                tipo_veiculo = input('Pressione (1) se o veículo é leve(Peso de até 3,5 toneladas\nPressione (2) se o veículo é pesado(Acima de 3,5 toneladas)\n')
+                print('-'*60)
+                break
             if tipo_veiculo == '1':
                 endereco = input('Qual endereco da ocorrência?\n')
                 print('-'*35)
@@ -188,21 +194,18 @@ def modal():
                 print('-'*22)
                 print('ATENDIMENTO ENCERRADO')
                 print('-'*22)
-            else:
-                main()
-        else:
-            main()
+            
+        
             
         # falha operacional e veiculo pesado
         if descobrindo_caso == '2':
-            # while tipo_veiculo != '1' and tipo_veiculo != '2':
-            #     print('\n------------------------------')
-            #     print('Não entendi, digite novamente.')
-            #     print('--------------------------------')
-            #     tipo_veiculo = input(
-            #     'Pressione (1) se o veículo é leve(Peso de até 3,5 toneladas\nPressione (2) se o veículo é pesado(Acima de 3,5 toneladas)\n')
-            #     print('------------------------------------------------------------')
-            #     break
+            while tipo_veiculo != '1' and tipo_veiculo != '2':
+                print('-'*32)
+                print('Não entendi, digite novamente.')
+                print('-'*32)
+                tipo_veiculo = input('Pressione (1) se o veículo é leve(Peso de até 3,5 toneladas\nPressione (2) se o veículo é pesado(Acima de 3,5 toneladas)\n')
+                print('-'*60)
+                break
             if tipo_veiculo == '2':
                 print('-'*35)
                 endereco_2 = input('Qual endereco da ocorrência?\n')
@@ -233,13 +236,7 @@ def modal():
                 #     print('ATENDIMENTO ENCERRADO')
                 #     print('----------------------')
                 #     break
-            else:
-                main()        
-        else:
-            main()
-    else:
-        main()       
-        
+       
         
            
 # inicio do programa
