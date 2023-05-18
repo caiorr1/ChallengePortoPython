@@ -23,6 +23,7 @@ def main():
             'Pressione (1) se deseja fazer o Cadastro.\nPressione (2) se deseja fazer o Login.\nPressione (3) se deseja Sair.\n')
         if choice == '3':
             print('Você saiu da aplicação')
+            exit()
         elif choice == '1':
             cadastro()
         elif choice == '2':
