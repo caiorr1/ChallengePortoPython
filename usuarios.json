@@ -1,2 +1,32 @@
+{
+    "usuarios_cadastrados" : {
 
-{}
+        "Caio": {
+            "cpf" : "cpf",
+            "placa" : "placa",
+            "modelo" : "modelo",
+            "senha" : "senhaCadastro",
+            "id" : "id_usuario"
+        } ,
+
+        "Eduardo": {
+            "cpf" : "cpf",
+            "placa" : "placa",
+            "modelo" : "modelo",
+            "senha" : "senhaCadastro",
+            "id" : "id_usuario"
+        },
+
+        "Henrique" : {
+            "cpf" : "cpf",
+            "placa" : "placa",
+            "modelo" : "modelo",
+            "senha" : "senhaCadastro",
+            "id" : "id_usuario"
+        }
+
+    
+    }
+
+}
+

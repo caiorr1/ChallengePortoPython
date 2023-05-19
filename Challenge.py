@@ -1,4 +1,5 @@
 import random
+import json
 bancoDeDados = {'Login1': 'Senha1', 'Login2': 'Senha2'}
 
 # Constants
@@ -73,6 +74,14 @@ def cadastro():
     senhaConfirmacao = input('Confirme a senha\n')
     id_usuario = random.randint(10000,99999)
 
+    with open('./usuarios.json') as arquivo:
+        usuarios_json = json.load(arquivo)
+    
+    #!!!!!!TERMINAR!!!!!!
+    #usuarios = usuarios_json["usuarios_cadastrados"]
+    #if usuarios[loginCadastro]:
+        
+
     while senhaConfirmacao != senhaCadastro:
 
         print('='*25)
@@ -89,14 +98,7 @@ def cadastro():
         print(f'Seu id é {id_usuario}\n')
         main()
 
-    novo_usuario = {
-        "login" : loginCadastro,
-        "cpf" : cpf,
-        "placa" : placa,
-        "modelo" : modelo,
-        "senha" : senhaCadastro,
-        "id" : id_usuario
-    }
+    
 
 def login():
     print('*'*28)
@@ -128,6 +130,8 @@ def login():
 
         print('Usuário Invalido')
         print('-'*20)
+
+
 
 
 # Chamando o modal
