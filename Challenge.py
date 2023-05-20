@@ -115,19 +115,19 @@ def cadastro():
            
     else:
 
-        loopUSerExists = True
+        loopUsuario = True
 
-        while loopUSerExists:
-            decisao_cadastro = input(f'O usuário {loginCadastro} já existe. \nDigite (1) se deseja fazer login\n Digite (2) se deseja cadastrar outro usuário:\n ')
+        while loopUsuario:
+            decisao_cadastro = input(f'O usuário {loginCadastro} já existe. Digite (1) se deseja fazer login\n Digite (2) se deseja cadastrar outro usuário')
 
             if decisao_cadastro == '1':
                 print('Ok! Você será direcionado para o login')
                 login()
-                loopUSerExists = False
+                loopUsuario = False
             elif decisao_cadastro == '2':
                 print('Ok! Você será direcionado para o cadastro')
                 cadastro()
-                loopUSerExists = False
+                loopUsuario = False
             else:
                 print('Não consegui te entender, tente novamente!')
     
@@ -150,7 +150,7 @@ def login():
 
 
 
-    if login == usuarios:
+    if login in usuarios:
 
         if senha == usuarios[login]['senha']:
 
