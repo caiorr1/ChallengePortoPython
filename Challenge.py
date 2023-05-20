@@ -77,28 +77,61 @@ def cadastro():
     with open('./usuarios.json') as arquivo:
         usuarios_json = json.load(arquivo)
     
-    #!!!!!!TERMINAR!!!!!!
-    #usuarios = usuarios_json["usuarios_cadastrados"]
-    #if usuarios[loginCadastro]:
-        
+    usuarios = usuarios_json["usuarios_cadastrados"]
 
-    while senhaConfirmacao != senhaCadastro:
-
-        print('='*25)
-        print('Senhas não conferem')
-        senhaConfirmacao = input('Confirme a senha\n')
-        print('='*25)
-
-    if senhaCadastro == senhaConfirmacao:
-
-        loginUsuario = {loginCadastro: senhaCadastro}
-        bancoDeDados.update(loginUsuario)
-        # print (bancoDeDados) Lista de Usuários
-        print('\nParabéns! Você realizou o seu cadastro!')
-        print(f'Seu id é {id_usuario}\n')
-        main()
-
+    user_select = loginCadastro in usuarios
     
+    #!!!!!!TERMINAR!!!!!!
+    # usuarios = usuarios_json["usuarios_cadastrados"]
+    # if user_select: 
+    #     if user_select['senha'] == sen
+    
+
+    if not user_select: 
+        while senhaConfirmacao != senhaCadastro:
+
+            print('='*25)
+            print('Senhas não conferem')
+            senhaConfirmacao = input('Confirme a senha\n')
+            print('='*25)
+
+        if senhaCadastro == senhaConfirmacao:
+            usuarios[loginCadastro] = {
+                "senha": senhaCadastro,
+                "id": id_usuario,
+                "cpf" : cpf,
+                "placa": placa,
+                "modelo" : modelo,
+            }
+
+            with open('./usuarios.json', 'w') as arquivo_final:
+                json.dump({"usuarios_cadastrados": usuarios}, arquivo_final)
+            arquivo_final.close()
+
+            print('\nParabéns! Você realizou o seu cadastro!')
+            print(f'Seu id é {id_usuario}\n')
+            main()
+
+           
+    else:
+
+        loopUSerExists = True
+
+        while loopUSerExists:
+            decisao_cadastro = input(f'O usuário {loginCadastro} já existe. \nDigite (1) se deseja fazer login\n Digite (2) se deseja cadastrar outro usuário:\n ')
+
+            if decisao_cadastro == '1':
+                print('Ok! Você será direcionado para o login')
+                login()
+                loopUSerExists = False
+            elif decisao_cadastro == '2':
+                print('Ok! Você será direcionado para o cadastro')
+                cadastro()
+                loopUSerExists = False
+            else:
+                print('Não consegui te entender, tente novamente!')
+    
+    arquivo.close()
 
 def login():
     print('*'*28)
@@ -109,22 +142,27 @@ def login():
     print('-'*30)
     senha = input('Qual a senha?\n')
 
-    for i in bancoDeDados:
+    
+    with open('./usuarios.json') as arquivo:
+        arquivo_json = json.load(arquivo)
+    
+    usuarios = arquivo_json["usuarios_cadastrados"]
 
-        if i == login:
 
-            if senha == bancoDeDados[i]:
 
-                print('-'*38)
-                print(f'Olá {login}! Você realizou o seu login!')
-                print('-'*38)
-                modal()
+    if login == usuarios:
 
-            else:
+        if senha == usuarios[login]['senha']:
 
-                print('-'*20)
-                print('Senha Incorreta')
-            break
+            print('-'*38)
+            print(f'Olá {login}! Você realizou o seu login!')
+            print('-'*38)
+            modal()
+
+        else:
+
+            print('-'*20)
+            print('Senha Incorreta')
 
     else:
 
