@@ -81,12 +81,6 @@ def cadastro():
 
     user_select = loginCadastro in usuarios
     
-    #!!!!!!TERMINAR!!!!!!
-    # usuarios = usuarios_json["usuarios_cadastrados"]
-    # if user_select: 
-    #     if user_select['senha'] == sen
-    
-
     if not user_select: 
         while senhaConfirmacao != senhaCadastro:
 
